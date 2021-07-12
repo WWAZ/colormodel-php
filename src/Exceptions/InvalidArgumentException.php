@@ -1,5 +1,5 @@
 <?php
 
-namespace wwaz\colormodel\Exceptions;
+namespace wwaz\Colormodel\Exceptions;
 
 class InvalidArgumentException extends \Exception{}

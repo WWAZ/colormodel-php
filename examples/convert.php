@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 
 require '../vendor/autoload.php';
 
-use wwaz\colormodel\Model\Hex;
-use wwaz\colormodel\Model\HSB;
+use wwaz\Colormodel\Model\Hex;
+use wwaz\Colormodel\Model\HSB;
 
 $color = new Hex('red');
 print_r($color->toHSB()->toArray());

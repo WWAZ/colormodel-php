@@ -1,9 +1,9 @@
 <?php
 
 
-namespace wwaz\colormodel\Model;
+namespace wwaz\Colormodel\Model;
 
-use wwaz\colormodel\Exceptions\InvalidArgumentException;
+use wwaz\Colormodel\Exceptions\InvalidArgumentException;
 
 /**
  * CMYKInt color model

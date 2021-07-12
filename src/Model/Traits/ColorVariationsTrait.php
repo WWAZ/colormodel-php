@@ -1,13 +1,13 @@
 <?php
 
-namespace wwaz\colormodel\Model\Traits;
+namespace wwaz\Colormodel\Model\Traits;
 
-use wwaz\colormodel\Model\CIELCh;
-use wwaz\colormodel\Model\HSV;
-use wwaz\colormodel\Model\RGB;
-use wwaz\colormodel\Colorharmony\Colorharmony;
-use wwaz\colormodel\Harmony\HarmonyFactory;
-use wwaz\colormodel\Colorname\Basename;
+use wwaz\Colormodel\Model\CIELCh;
+use wwaz\Colormodel\Model\HSV;
+use wwaz\Colormodel\Model\RGB;
+use wwaz\Colormodel\Colorharmony\Colorharmony;
+use wwaz\Colormodel\Harmony\HarmonyFactory;
+use wwaz\Colormodel\Colorname\Basename;
 
 /**
  * Color model trait
@@ -70,10 +70,10 @@ trait ColorVariationsTrait{
   /**
    * Calculates range between this color and a destination color
    *
-   * @param \wwaz\colormodel\Model\Color $destinationColor
+   * @param \wwaz\Colormodel\Model\Color $destinationColor
    * @param int $steps – to reach the destination color
    * @param bool $includeSelf
-   * @return \wwaz\colormodel\Model\Color[] – array or color objects
+   * @return \wwaz\Colormodel\Model\Color[] – array or color objects
    */
   protected function range($fromColor, $toColor, $steps = 5, $includeSelf = null){
 

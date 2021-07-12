@@ -1,8 +1,8 @@
 <?php
 
-namespace wwaz\colormodel\Model\Traits;
+namespace wwaz\Colormodel\Model\Traits;
 
-use wwaz\colormodel\Model\RGB;
+use wwaz\Colormodel\Model\RGB;
 
 /**
  * Color model trait
@@ -13,7 +13,7 @@ trait ColorManipulationTrait{
   /**
    * Return a grayscale version of the current color
    *
-   * @return \wwaz\colormodel\Model\Color The grayscale color
+   * @return \wwaz\Colormodel\Model\Color The grayscale color
    */
   public function grayscale(){
     $a = $this->toRGB();
@@ -31,7 +31,7 @@ trait ColorManipulationTrait{
    *
    * @param int $degreeModifier Degrees to modify by
    * @param bool $absolute If TRUE set absolute value
-   * @return \wwaz\colormodel\Model\Color The modified color
+   * @return \wwaz\Colormodel\Model\Color The modified color
    */
   public function hue($degreeModifier, $absolute = false){
     $a = $this->toHSB();
@@ -49,7 +49,7 @@ trait ColorManipulationTrait{
    *
    * @param int $satModifier - Value to modify by
    * @param bool $absolute - If TRUE set absolute value
-   * @return \wwaz\colormodel\Model\Color - The modified color
+   * @return \wwaz\Colormodel\Model\Color - The modified color
    */
   public function saturation($satModifier, $absolute = false){
     $a = $this->toHSB();
@@ -82,7 +82,7 @@ trait ColorManipulationTrait{
    *
    * @param int $brightnessModifier - Value to modify by
    * @param bool $absolute - If TRUE set absolute value
-   * @return \wwaz\colormodel\Model\Color - The modified color
+   * @return \wwaz\Colormodel\Model\Color - The modified color
   */
   public function brightness($brightnessModifier, $absolute = false){
     $a = $this->toHSB();

@@ -1,6 +1,6 @@
 <?php
 
-namespace wwaz\colormodel\Model\Traits;
+namespace wwaz\Colormodel\Model\Traits;
 
 /**
  * Color model trait

@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "wwaz\\colormodel\\": "src/"
+            "wwaz\\Colormodel\\": "src/"
         }
     },
     "autoload-dev": {

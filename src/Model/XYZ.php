@@ -1,8 +1,8 @@
 <?php
 
-namespace wwaz\colormodel\Model;
+namespace wwaz\Colormodel\Model;
 
-use wwaz\colormodel\Exceptions\InvalidArgumentException;
+use wwaz\Colormodel\Exceptions\InvalidArgumentException;
 
 /**
  * XYZ color model
@@ -61,7 +61,7 @@ class XYZ extends Color{
   /**
    * Convert the color to Hex format
    *
-   * @return \wwaz\colormodel\Model\Hex the color in Hex format
+   * @return \wwaz\Colormodel\Model\Hex the color in Hex format
    */
   public function toHex(){
     return $this->toRGB()->toHex();
@@ -70,7 +70,7 @@ class XYZ extends Color{
   /**
    * Convert the color to RGB format
    *
-   * @return \wwaz\colormodel\Model\RGB the color in RGB format
+   * @return \wwaz\Colormodel\Model\RGB the color in RGB format
    */
   public function toRGB(){
     $var_X = $this->x / 100;
@@ -106,7 +106,7 @@ class XYZ extends Color{
    * Convert the color to RGBA format
    *
    * @param float $alpha
-   * @return \wwaz\colormodel\Model\RGBA the color in RGBA format
+   * @return \wwaz\Colormodel\Model\RGBA the color in RGBA format
    */
   public function toRGBA($alpha = 1){
     $rgb = $this->toRGB()->toArray();
@@ -117,7 +117,7 @@ class XYZ extends Color{
   /**
    * Convert the color to XYZ format
    *
-   * @return \wwaz\colormodel\Model\XYZ the color in XYZ format
+   * @return \wwaz\Colormodel\Model\XYZ the color in XYZ format
    */
   public function toXYZ(){
     return $this;
@@ -126,7 +126,7 @@ class XYZ extends Color{
   /**
    * Convert the color to Yxy format
    *
-   * @return \wwaz\colormodel\Model\Yxy the color in Yxy format
+   * @return \wwaz\Colormodel\Model\Yxy the color in Yxy format
    */
   public function toYxy(){
     $Y = $this->y;
@@ -138,7 +138,7 @@ class XYZ extends Color{
   /**
    * Convert the color to HSL format
    *
-   * @return \wwaz\colormodel\Model\HSL the color in HSL format
+   * @return \wwaz\Colormodel\Model\HSL the color in HSL format
    */
   public function toHSL(){
     return $this->toHSV()->toHSL();
@@ -147,7 +147,7 @@ class XYZ extends Color{
   /**
    * Convert the color to HSV format
    *
-   * @return \wwaz\colormodel\Model\HSV the color in HSV format
+   * @return \wwaz\Colormodel\Model\HSV the color in HSV format
    */
   public function toHSV(){
     return $this->toRGB()->toHSV();
@@ -156,7 +156,7 @@ class XYZ extends Color{
   /**
    * Convert the color to HSB format
    *
-   * @return \wwaz\colormodel\Model\HSB the color in HSB format
+   * @return \wwaz\Colormodel\Model\HSB the color in HSB format
    */
   public function toHSB(){
     return $this->toRGB()->toHSB();
@@ -165,7 +165,7 @@ class XYZ extends Color{
   /**
    * Convert the color to CMY format
    *
-   * @return \wwaz\colormodel\Model\CMY the color in CMY format
+   * @return \wwaz\Colormodel\Model\CMY the color in CMY format
    */
   public function toCMY(){
     return $this->toRGB()->toCMY();
@@ -174,7 +174,7 @@ class XYZ extends Color{
   /**
    * Convert the color to CMYK format
    *
-   * @return \wwaz\colormodel\Model\CMYK the color in CMYK format
+   * @return \wwaz\Colormodel\Model\CMYK the color in CMYK format
    */
   public function toCMYK(){
     return $this->toCMY()->toCMYK();
@@ -183,7 +183,7 @@ class XYZ extends Color{
   /**
    * Convert the color to CMYKInt format
    *
-   * @return \wwaz\colormodel\Model\CMYKInt the color in CMYK format
+   * @return \wwaz\Colormodel\Model\CMYKInt the color in CMYK format
    */
   public function toCMYKInt(){
     return $this->toCMYK()->toCMYKInt();
@@ -192,7 +192,7 @@ class XYZ extends Color{
   /**
    * Convert the color to CIELab format
    *
-   * @return \wwaz\colormodel\Model\CIELab the color in CIELab format
+   * @return \wwaz\Colormodel\Model\CIELab the color in CIELab format
    */
   public function toCIELab(){
     $Xn = 95.047;
@@ -232,7 +232,7 @@ class XYZ extends Color{
   /**
    * Convert the color to CIELCh format
    *
-   * @return \wwaz\colormodel\Model\CIELCh the color in CIELCh format
+   * @return \wwaz\Colormodel\Model\CIELCh the color in CIELCh format
    */
   public function toCIELCh(){
     return $this->toCIELab()->toCIELCh();

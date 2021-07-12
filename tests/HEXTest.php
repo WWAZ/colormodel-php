@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-use wwaz\phpcolorbase\Exceptions\InvalidArgumentException;
-use wwaz\phpcolorbase\Model\HEX;
+use wwaz\Colormodel\Exceptions\InvalidArgumentException;
+use wwaz\Colormodel\Model\HEX;
 
 
 final class HEXTest extends TestCase{

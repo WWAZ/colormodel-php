@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-use wwaz\phpcolorbase\Exceptions\InvalidArgumentException;
-use wwaz\phpcolorbase\Model\RGB;
+use wwaz\Colormodel\Exceptions\InvalidArgumentException;
+use wwaz\Colormodel\Model\RGB;
 
 
 final class RGBTest extends TestCase{

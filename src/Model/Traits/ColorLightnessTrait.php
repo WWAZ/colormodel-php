@@ -1,9 +1,9 @@
 <?php
 
-namespace wwaz\colormodel\Model\Traits;
+namespace wwaz\Colormodel\Model\Traits;
 
-use wwaz\colormodel\Model\RGB;
-use wwaz\colormodel\Model\Hex;
+use wwaz\Colormodel\Model\RGB;
+use wwaz\Colormodel\Model\Hex;
 
 /**
  * Color model trait
