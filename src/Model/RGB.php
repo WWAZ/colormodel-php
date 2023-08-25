@@ -79,7 +79,6 @@ class RGB extends Color{
     if ($this->blue < 0 || $this->blue > 255) {
       throw new InvalidArgumentException('['.$this->red.','.$this->green.','.$this->blue.']: Parameter blue out of range');
     }
-
   }
 
   /**
@@ -93,14 +92,13 @@ class RGB extends Color{
     return new RGB($red, $green, $blue);
   }
 
-
   /**
    * Get the red value (rounded)
    *
    * @return int The red value
    */
   public function getRed(){
-    return (0.5 + $this->red) | 0;
+    return ((int) 0.5 + $this->red) | 0;
   }
 
   /**
@@ -109,7 +107,7 @@ class RGB extends Color{
    * @return int The green value
    */
   public function getGreen(){
-    return (0.5 + $this->green) | 0;
+    return ((int) 0.5 + $this->green) | 0;
   }
 
   /**
@@ -118,35 +116,8 @@ class RGB extends Color{
    * @return int The blue value
    */
   public function getBlue(){
-    return (0.5 + $this->blue) | 0;
+    return ((int) 0.5 + $this->blue) | 0;
   }
-
-  // /**
-  //  * Shortcut for getRed()
-  //  *
-  //  * @return int The red value
-  //  */
-  // public function red(){
-  //   return $this->getRed();
-  // }
-  //
-  // /**
-  //  * Shortcut for getGreen()
-  //  *
-  //  * @return int The green value
-  //  */
-  // public function green(){
-  //   return $this->getGreen();
-  // }
-  //
-  // /**
-  //  * Shortcut for getBlue()
-  //  *
-  //  * @return int The blue value
-  //  */
-  // public function blue(){
-  //   return $this->getBlue();
-  // }
 
   /**
    * Convert the color to Hex format
