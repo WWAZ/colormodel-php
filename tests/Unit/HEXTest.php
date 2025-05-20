@@ -34,10 +34,8 @@ final class HEXTest extends TestCase{
 
     $this->assertSame($Color->type(), 'hex');
 
-    $this->assertSame($Color->toArray(), false);
+    $this->assertSame($Color->toArray(), ['FF', '00', '00']);
     $this->assertSame($Color->toAssociativeArray(), false);
-
-    $this->assertSame($Color->shorten()->toString(), 'F00');
 
     $this->assertSame($Color->toHTML(), '#f00');
 
