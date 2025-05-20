@@ -67,9 +67,12 @@ class Hex extends Color{
    * @return \wwaz\Colormodel\Model\RGB the color in RGB format
    */
   public function toRGB(){
-    $red = (($this->hex & 0xFF0000) >> 16);
-    $green = (($this->hex & 0x00FF00) >> 8);
-    $blue = (($this->hex & 0x0000FF));
+    $hexString = ltrim($this->hex, '#');       // "#" remove, when existing
+    $hex = hexdec($hexString);                 // z. B. "FF00FF" -> 16711935
+
+    $red = (($hex & 0xFF0000) >> 16);
+    $green = (($hex & 0x00FF00) >> 8);
+    $blue = (($hex & 0x0000FF));
     return new RGB($red, $green, $blue);
   }
 
