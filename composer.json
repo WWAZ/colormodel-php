@@ -3,9 +3,6 @@
     "type": "project",
     "description": "Basic color models and conversions",
     "license": "MIT",
-    "require": {
-        "php": "^7.2.5"
-    },
     "require-dev": {
         "phpunit/phpunit": "^8.5"
     },
