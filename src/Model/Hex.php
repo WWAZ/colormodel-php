@@ -66,13 +66,24 @@ class Hex extends Color
      */
     public function toRGB()
     {
-        // $hexString = ltrim($this->hex, '#'); // "#" remove, when existing
-        // $hex       = hexdec($hexString);     // z. B. "FF00FF" -> 16711935
-        $hex = $this->hex;
+        // // $hexString = ltrim($this->hex, '#'); // "#" remove, when existing
+        // // $hex       = hexdec($hexString);     // z. B. "FF00FF" -> 16711935
+        // $hex = $this->hex;
 
+        // $red   = (($hex & 0xFF0000) >> 16);
+        // $green = (($hex & 0x00FF00) >> 8);
+        // $blue  = (($hex & 0x0000FF));
+        // return new RGB($red, $green, $blue);
+        $hex = $this->hex;
+        
+        if( is_string($hex) ){
+            $hex = Hex::fromString($hex)->hex;
+        }
+       
         $red   = (($hex & 0xFF0000) >> 16);
         $green = (($hex & 0x00FF00) >> 8);
         $blue  = (($hex & 0x0000FF));
+        
         return new RGB($red, $green, $blue);
     }
 
