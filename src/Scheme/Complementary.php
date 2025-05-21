@@ -9,12 +9,14 @@ class Complementary extends Scheme
 {
     public function get()
     {
+        $orgType = $this->color->type();
         $rgb = $this->color->toRgb();
 
         $r = 255 - $rgb->getRed();
         $g = 255 - $rgb->getGreen();
         $b = 255 - $rgb->getBlue();
 
-        return new RGB([$r, $g, $b]);
+        $toOrg = 'to' . $orgType;
+        return (new RGB([$r, $g, $b]))->$toOrg();
     }
 }
