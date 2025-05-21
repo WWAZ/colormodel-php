@@ -58,18 +58,6 @@ class RGB extends Color
             ],
         ]);
 
-        // if ($this->red > 255) {
-        //     $this->red = 255;
-        // }
-
-        // if ($this->green > 255) {
-        //     $this->green = 255;
-        // }
-
-        // if ($this->blue > 255) {
-        //     $this->blue = 255;
-        // }
-
         if ($this->red < 0 || $this->red > 255) {
             throw new InvalidArgumentException('[' . $this->red . ',' . $this->green . ',' . $this->blue . ']: Parameter red out of range');
         }

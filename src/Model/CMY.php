@@ -54,10 +54,6 @@ class CMY extends Color
                 'type' => 'float',
             ],
         ]);
-
-        // $this->cyan = $cyan;
-        // $this->magenta = $magenta;
-        // $this->yellow = $yellow;
     }
 
     public static function create($cyan, $magenta, $yellow)
@@ -94,33 +90,6 @@ class CMY extends Color
     {
         return $this->yellow;
     }
-
-    // /**
-    //  * Shortcut for getCyan()
-    //  *
-    //  * @return int The amount of cyan
-    //  */
-    // public function cyan(){
-    //   return $this->getCyan();
-    // }
-    //
-    // /**
-    //  * Shortcut for getMagenta()
-    //  *
-    //  * @return int The amount of magenta
-    //  */
-    // public function magenta(){
-    //   return $this->getMagenta();
-    // }
-    //
-    // /**
-    //  * Shortcut for getYellow()
-    //  *
-    //  * @return int The amount of yellow
-    //  */
-    // public function yellow(){
-    //   return $this->getYellow();
-    // }
 
     /**
      * Convert the color to Hex format
@@ -329,5 +298,4 @@ class CMY extends Color
     {
         return ['c' => $this->cyan, 'm' => $this->magenta, 'y' => $this->yellow];
     }
-
 }

@@ -28,4 +28,16 @@ final class ColorTest extends TestCase
         $Color = new RGB(0, 161, 243);
         $this->assertSame($Color->websafe()->toString(), '0,153,255');
     }
+
+    // public function testDesaturate(): void
+    // {
+    //     $Color = new RGB(255, 0, 0);
+    //     $this->assertSame($Color->saturation(0, true)->toString(), '255,255,255');
+    // }
+
+    // public function testSaturation(): void
+    // {
+    //     $Color = new RGB(255, 0, 0);
+    //     $this->assertSame($Color->saturation(50, true)->toString(), '255,255,255');
+    // }
 }

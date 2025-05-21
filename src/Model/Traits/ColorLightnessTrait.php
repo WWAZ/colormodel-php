@@ -21,7 +21,8 @@ trait ColorLightnessTrait
 
     /**
      * Returns color lightness.
-     *
+     * 
+     * @param $percentage – values from 1 to 100
      * @return float
      */
     public function lightness($percentage = null)

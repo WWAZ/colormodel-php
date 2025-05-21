@@ -37,7 +37,6 @@ class HSL extends Color
      */
     public function __construct($hue, float $saturation = null, float $lightness = null)
     {
-
         $this->toSelf = "toHSL";
 
         if ($saturation > 100) {

@@ -1,5 +1,6 @@
 
 vendor/
+__trash/
 composer.lock
 
 ############################

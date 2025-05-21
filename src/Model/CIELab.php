@@ -7,7 +7,7 @@ namespace wwaz\Colormodel\Model;
  */
 class CIELab extends Color
 {
-
+    
     /**
      * The lightness
      * @var float
@@ -36,7 +36,6 @@ class CIELab extends Color
      */
     public function __construct($lightness, float $a = null, float $b = null)
     {
-
         $this->toSelf = "toCIELab";
 
         $this->init([
@@ -62,18 +61,6 @@ class CIELab extends Color
     {
         return new CIELab($lightness, $a, $b);
     }
-
-    // public function lightness(){
-    //   return $this->lightness;
-    // }
-    //
-    // public function a(){
-    //   return $this->a;
-    // }
-    //
-    // public function b(){
-    //   return $this->b;
-    // }
 
     /**
      * Convert the color to Hex format
