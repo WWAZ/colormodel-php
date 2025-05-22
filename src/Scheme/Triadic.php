@@ -10,8 +10,8 @@ class Triadic extends Scheme
     {
         return [
             clone $this->color,
-            clone $this->color->hue(-120),
-            clone $this->color->hue(120)
+            clone $this->color->hue(120),
+            clone $this->color->hue(-120)
         ];
     }
 }

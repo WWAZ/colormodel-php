@@ -13,7 +13,7 @@ final class TriadicTest extends TestCase
     {
         $colors = (new Triadic(new RGB(255, 0, 0)))->get();
         $this->assertSame($colors[0]->toRgb()->toString(), '255,0,0');
-        $this->assertSame($colors[1]->toRgb()->toString(), '255,0,255');
-        $this->assertSame($colors[2]->toRgb()->toString(), '0,255,0');
+        $this->assertSame($colors[1]->toRgb()->toString(), '0,255,0');
+        $this->assertSame($colors[2]->toRgb()->toString(), '255,0,255');
     }
 }
