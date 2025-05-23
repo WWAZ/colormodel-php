@@ -84,7 +84,7 @@ abstract class Color
     {
         $orgType = $this->type();
         $hsb = $this->toHsb();
-        $hsb->hue(185);
+        $hsb->hue(190);
         $toOrg = 'to' . $orgType;
         return $hsb->$toOrg();
     }
