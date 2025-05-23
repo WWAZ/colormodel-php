@@ -11,7 +11,8 @@ final class ComplementaryTest extends TestCase
 {
     public function testScheme(): void
     {
-        $rgb = (new Complementary(new RGB(255, 0, 0)))->get();
-        $this->assertSame($rgb->toString(), '0,255,255');
+        $colors = (new Complementary(new RGB(255, 0, 0)))->get();
+        $this->assertSame($colors[0]->toRgb()->toString(), '255,0,0');
+        $this->assertSame($colors[1]->toRgb()->toString(), '0,255,255');
     }
 }

@@ -67,6 +67,19 @@ abstract class Color
         return new $classname($value);
     }
 
+    public function complement()
+    {
+        $orgType = $this->type();
+        $rgb = $this->toRgb();
+
+        $r = 255 - $rgb->getRed();
+        $g = 255 - $rgb->getGreen();
+        $b = 255 - $rgb->getBlue();
+
+        $toOrg = 'to' . $orgType;
+        return (new RGB([$r, $g, $b]))->$toOrg();
+    }
+
     /**
      * Convert the color to Hex format.
      *
