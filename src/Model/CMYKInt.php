@@ -6,7 +6,7 @@ namespace wwaz\Colormodel\Model;
  * CMYKInt color model
  * extends CMYK. The difference between the two objects is that
  * CMYKInt is constructed and will return integer color values.
- * e.g. [100,0,0,0]
+ * ex. [100,0,0,0]
  */
 class CMYKInt extends CMYK
 {
@@ -14,7 +14,7 @@ class CMYKInt extends CMYK
      * When true,
      * input and output representation
      * of values is in intValues.
-     * e.g. 0,100,0,0
+     * ex. 0,100,0,0
      *
      * @var bool
      */
@@ -34,10 +34,20 @@ class CMYKInt extends CMYK
      * @param float $yellow - yellow
      * @param float $key - key (black)
      */
-    public function __construct($cyan, int $magenta = null, int $yellow = null, int $key = null)
+    public function __construct(int|string|array $cyan, int $magenta = null, int $yellow = null, int $key = null)
     {
 
         $this->toSelf = "toCMYKInt";
+
+        if( !is_numeric($cyan) && is_string($cyan) && strpos($cyan, ',') === false  ){
+            // Probalby color name
+            if( $hex = $this->getColorFromName($cyan) ){
+                [$cyan, $magenta, $yellow, $key] = $hex->toCMYKInt()->toArray();
+                
+            } else {
+                throw new InvalidArgumentException('Color name "' . $cyan . '" does not exist');
+            }
+        }
 
         $this->init([
             [

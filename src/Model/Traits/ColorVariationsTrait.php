@@ -72,7 +72,7 @@ trait ColorVariationsTrait
      * @param \wwaz\Colormodel\Model\Color $destinationColor
      * @param int $steps – to reach the destination color
      * @param bool $includeSelf
-     * @return \wwaz\Colormodel\Model\Color[] – array or color objects
+     * @return wwaz\Colormodel\Model\Color[] – array or color objects
      */
     protected function range($fromColor, $toColor, $steps = 5, $includeSelf = null)
     {

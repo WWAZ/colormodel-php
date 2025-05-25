@@ -13,7 +13,7 @@ trait ColorManipulationTrait
     /**
      * Return a grayscale version of the current color
      *
-     * @return \wwaz\Colormodel\Model\Color The grayscale color
+     * @return wwaz\Colormodel\Model\Color The grayscale color
      */
     public function grayscale()
     {
@@ -31,7 +31,7 @@ trait ColorManipulationTrait
      *
      * @param int $degreeModifier Degrees to modify by
      * @param bool $absolute If TRUE set absolute value
-     * @return \wwaz\Colormodel\Model\Color The modified color
+     * @return wwaz\Colormodel\Model\Color The modified color
      */
     public function hue($degreeModifier, $absolute = false)
     {
@@ -49,7 +49,7 @@ trait ColorManipulationTrait
      *
      * @param int $satModifier - Value to modify by
      * @param bool $absolute - If TRUE set absolute value
-     * @return \wwaz\Colormodel\Model\Color - The modified color
+     * @return wwaz\Colormodel\Model\Color - The modified color
      */
     public function saturation($satModifier, $absolute = false)
     {
@@ -81,7 +81,7 @@ trait ColorManipulationTrait
      * Modify the brightness by $brightnessModifier
      *
      * @param int $brightness - value from 0 to 100
-     * @return \wwaz\Colormodel\Model\Color - The modified color
+     * @return wwaz\Colormodel\Model\Color - The modified color
      */
     public function brightness($brightness)
     {

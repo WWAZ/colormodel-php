@@ -35,9 +35,19 @@ class HSL extends Color
      * @param float $saturation - saturation (0-1)
      * @param float $lightness - lightness (0-1)
      */
-    public function __construct($hue, float $saturation = null, float $lightness = null)
+    public function __construct(float|string|array $hue, float $saturation = null, float $lightness = null)
     {
         $this->toSelf = "toHSL";
+
+        if( !is_numeric($hue) && is_string($hue) && strpos($hue, ',') === false  ){
+            // Probalby color name
+            if( $hex = $this->getColorFromName($hue) ){
+                [$hue, $saturation, $lightness] = $hex->toHsl()->toArray();
+                
+            } else {
+                throw new InvalidArgumentException('Color name "' . $hue . '" does not exist');
+            }
+        }
 
         if ($saturation > 100) {
             $saturation = 100;
@@ -76,7 +86,7 @@ class HSL extends Color
     /**
      * Convert the color to Hex format
      *
-     * @return \wwaz\Colormodel\Model\Hex the color in Hex format
+     * @return wwaz\Colormodel\Model\Hex the color in Hex format
      */
     public function toHex()
     {
@@ -86,7 +96,7 @@ class HSL extends Color
     /**
      * Convert the color to RGB format
      *
-     * @return \wwaz\Colormodel\Model\RGB the color in RGB format
+     * @return wwaz\Colormodel\Model\RGB the color in RGB format
      */
     public function toRGB()
     {
@@ -97,7 +107,7 @@ class HSL extends Color
      * Convert the color to RGBA format
      *
      * @param float $alpha
-     * @return \wwaz\Colormodel\Model\RGBA the color in RGBA format
+     * @return wwaz\Colormodel\Model\RGBA the color in RGBA format
      */
     public function toRGBA($alpha = 1)
     {
@@ -109,7 +119,7 @@ class HSL extends Color
     /**
      * Convert the color to XYZ format
      *
-     * @return \wwaz\Colormodel\Model\XYZ the color in XYZ format
+     * @return wwaz\Colormodel\Model\XYZ the color in XYZ format
      */
     public function toXYZ()
     {
@@ -119,7 +129,7 @@ class HSL extends Color
     /**
      * Convert the color to Yxy format
      *
-     * @return \wwaz\Colormodel\Model\Yxy the color in Yxy format
+     * @return wwaz\Colormodel\Model\Yxy the color in Yxy format
      */
     public function toYxy()
     {
@@ -129,7 +139,7 @@ class HSL extends Color
     /**
      * Convert the color to HSL format
      *
-     * @return \wwaz\Colormodel\Model\HSL the color in HSL format
+     * @return wwaz\Colormodel\Model\HSL the color in HSL format
      */
     public function toHSL()
     {
@@ -139,7 +149,7 @@ class HSL extends Color
     /**
      * Convert the color to HSV format
      *
-     * @return \wwaz\Colormodel\Model\HSV the color in HSV format
+     * @return wwaz\Colormodel\Model\HSV the color in HSV format
      */
     public function toHSV()
     {
@@ -157,7 +167,7 @@ class HSL extends Color
     /**
      * Convert the color to HSB format
      *
-     * @return \wwaz\Colormodel\Model\HSB the color in HSB format
+     * @return wwaz\Colormodel\Model\HSB the color in HSB format
      */
     public function toHSB()
     {
@@ -167,7 +177,7 @@ class HSL extends Color
     /**
      * Convert the color to CMY format
      *
-     * @return \wwaz\Colormodel\Model\CMY the color in CMY format
+     * @return wwaz\Colormodel\Model\CMY the color in CMY format
      */
     public function toCMY()
     {
@@ -177,7 +187,7 @@ class HSL extends Color
     /**
      * Convert the color to CMYK format
      *
-     * @return \wwaz\Colormodel\Model\CMYK the color in CMYK format
+     * @return wwaz\Colormodel\Model\CMYK the color in CMYK format
      */
     public function toCMYK()
     {
@@ -187,7 +197,7 @@ class HSL extends Color
     /**
      * Convert the color to CMYKInt format
      *
-     * @return \wwaz\Colormodel\Model\CMYKInt the color in CMYK format
+     * @return wwaz\Colormodel\Model\CMYKInt the color in CMYK format
      */
     public function toCMYKInt()
     {
@@ -197,7 +207,7 @@ class HSL extends Color
     /**
      * Convert the color to CIELab format
      *
-     * @return \wwaz\Colormodel\Model\CIELab the color in CIELab format
+     * @return wwaz\Colormodel\Model\CIELab the color in CIELab format
      */
     public function toCIELab()
     {
@@ -207,7 +217,7 @@ class HSL extends Color
     /**
      * Convert the color to CIELCh format
      *
-     * @return \wwaz\Colormodel\Model\CIELCh the color in CIELCh format
+     * @return wwaz\Colormodel\Model\CIELCh the color in CIELCh format
      */
     public function toCIELCh()
     {

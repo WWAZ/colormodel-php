@@ -32,6 +32,12 @@ final class CMYKTest extends TestCase
         $Color = new CMYK(['100', '50', '0', '0']);
         $this->assertSame($Color->toString(), '1,0.5,0,0');
 
+        $Color = new CMYK('Cyan');
+        $this->assertSame($Color->toString(), '1,0,0,0');
+
+        $Color = new CMYK('magenta');
+        $this->assertSame($Color->toString(), '0,1,0,0');
+
         $Color = new CMYK([
             'c' => 1,
             'm' => 0,

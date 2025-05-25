@@ -48,6 +48,15 @@ class RGBA extends Color
 
         $this->toSelf = "toRGBA";
 
+        if( !is_numeric($red) && is_string($red) && strpos($red, ',') === false  ){
+            // Probalby color name
+            if( $hex = $this->getColorFromName($red) ){
+                [$red, $green, $blue, $alpha] = $hex->toRgba()->toArray();
+            } else {
+                throw new InvalidArgumentException('Color name "' . $red . '" does not exist');
+            }
+        }
+
         $this->init([
             [
                 'key'  => 'red',
@@ -129,7 +138,7 @@ class RGBA extends Color
     /**
      * Convert the color to Hex format
      *
-     * @return \wwaz\Colormodel\Model\Hex the color in Hex format
+     * @return wwaz\Colormodel\Model\Hex the color in Hex format
      */
     public function toHex()
     {
@@ -139,7 +148,7 @@ class RGBA extends Color
     /**
      * Convert the color to RGBA format
      *
-     * @return \wwaz\Colormodel\Model\RGBA the color in RGBA format
+     * @return wwaz\Colormodel\Model\RGBA the color in RGBA format
      */
     public function toRGBA($alpha = null)
     {
@@ -152,7 +161,7 @@ class RGBA extends Color
     /**
      * Convert the color to RGB format
      *
-     * @return \wwaz\Colormodel\Model\RGB the color in RGB format
+     * @return wwaz\Colormodel\Model\RGB the color in RGB format
      */
     public function toRGB()
     {
@@ -162,7 +171,7 @@ class RGBA extends Color
     /**
      * Convert the color to XYZ format
      *
-     * @return \wwaz\Colormodel\Model\XYZ the color in XYZ format
+     * @return wwaz\Colormodel\Model\XYZ the color in XYZ format
      */
     public function toXYZ()
     {
@@ -196,7 +205,7 @@ class RGBA extends Color
     /**
      * Convert the color to Yxy format
      *
-     * @return \wwaz\Colormodel\Model\Yxy the color in Yxy format
+     * @return wwaz\Colormodel\Model\Yxy the color in Yxy format
      */
     public function toYxy()
     {
@@ -206,7 +215,7 @@ class RGBA extends Color
     /**
      * Convert the color to HSL format
      *
-     * @return \wwaz\Colormodel\Model\HSL the color in HSL format
+     * @return wwaz\Colormodel\Model\HSL the color in HSL format
      */
     public function toHSL()
     {
@@ -216,7 +225,7 @@ class RGBA extends Color
     /**
      * Convert the color to HSV format
      *
-     * @return \wwaz\Colormodel\Model\HSV the color in HSV format
+     * @return wwaz\Colormodel\Model\HSV the color in HSV format
      */
     public function toHSV()
     {
@@ -263,7 +272,7 @@ class RGBA extends Color
     /**
      * Convert the color to HSB format
      *
-     * @return \wwaz\Colormodel\Model\HSB the color in HSB format
+     * @return wwaz\Colormodel\Model\HSB the color in HSB format
      */
     public function toHSB()
     {
@@ -273,7 +282,7 @@ class RGBA extends Color
     /**
      * Convert the color to CMY format
      *
-     * @return \wwaz\Colormodel\Model\CMY the color in CMY format
+     * @return wwaz\Colormodel\Model\CMY the color in CMY format
      */
     public function toCMY()
     {
@@ -286,7 +295,7 @@ class RGBA extends Color
     /**
      * Convert the color to CMYK format
      *
-     * @return \wwaz\Colormodel\Model\CMYK the color in CMYK format
+     * @return wwaz\Colormodel\Model\CMYK the color in CMYK format
      */
     public function toCMYK()
     {
@@ -296,7 +305,7 @@ class RGBA extends Color
     /**
      * Convert the color to CMYKInt format
      *
-     * @return \wwaz\Colormodel\Model\CMYKInt the color in CMYK format
+     * @return wwaz\Colormodel\Model\CMYKInt the color in CMYK format
      */
     public function toCMYKInt()
     {
@@ -306,7 +315,7 @@ class RGBA extends Color
     /**
      * Convert the color to CIELab format
      *
-     * @return \wwaz\Colormodel\Model\CIELab the color in CIELab format
+     * @return wwaz\Colormodel\Model\CIELab the color in CIELab format
      */
     public function toCIELab()
     {
@@ -316,7 +325,7 @@ class RGBA extends Color
     /**
      * Convert the color to CIELCh format
      *
-     * @return \wwaz\Colormodel\Model\CIELCh the color in CIELCh format
+     * @return wwaz\Colormodel\Model\CIELCh the color in CIELCh format
      */
     public function toCIELCh()
     {
@@ -355,7 +364,7 @@ class RGBA extends Color
 
     /**
      * Returns html color value representation
-     * e.g. rgba(255,0,0,0.5)
+     * ex. rgba(255,0,0,0.5)
      *
      * @return string
      */
@@ -369,7 +378,7 @@ class RGBA extends Color
 
     /**
      * Returns html color value representation
-     * e.g. rgba(255,0,0,0.5)
+     * ex. rgba(255,0,0,0.5)
      *
      * @return string
      */

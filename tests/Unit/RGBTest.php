@@ -38,17 +38,27 @@ final class RGBTest extends TestCase
         ]);
         $this->assertSame($Color->toString(), '255,0,0');
 
+        $Color = new RGB('red');
+        $this->assertSame($Color->toString(), '255,0,0');
+
         $this->assertSame($Color->type(), 'rgb');
 
         $this->assertSame($Color->toString(), '255,0,0');
         $this->assertSame($Color->toArray(), [255, 0, 0]);
         $this->assertSame($Color->toAssociativeArray(), ['r' => 255, 'g' => 0, 'b' => 0]);
+        $this->assertSame($Color->toAssoc(), ['r' => 255, 'g' => 0, 'b' => 0]);
     }
 
     public function testInitException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $Color = new RGB(300, 0, 0);
+    }
+
+    public function testInitUnknownColorNameException(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $Color = new RGB('no-color');
     }
 
     public function testConvert(): void
@@ -72,5 +82,4 @@ final class RGBTest extends TestCase
         $this->assertTrue(is_string($Color->ToCIELCh()->toString()));
         $this->assertTrue(is_string($Color->ToCIELab()->toString()));
     }
-
 }

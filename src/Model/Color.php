@@ -6,21 +6,16 @@ use wwaz\Colormodel\Model\Traits\ColorInitializationTrait;
 use wwaz\Colormodel\Model\Traits\ColorLightnessTrait;
 use wwaz\Colormodel\Model\Traits\ColorManipulationTrait;
 use wwaz\Colormodel\Model\Traits\ColorVariationsTrait;
+use wwaz\Colormodel\Model\Traits\ColornamesTrait;
 
-/**
- * Color base class.
- * More handy modification of
- * @see https://github.com/mikeemoo/ColorJizz-PHP
- */
 abstract class Color
 {
-    /**
-     * Traits
-     */
+
     use ColorInitializationTrait;
     use ColorManipulationTrait;
     use ColorVariationsTrait;
     use ColorLightnessTrait;
+    use ColornamesTrait;
 
     /**
      * Name of object to convert to it's self.
@@ -32,8 +27,8 @@ abstract class Color
     /**
      * Converts this color to given type string.
      *
-     * @param string $type – e.g. 'rgb'
-     * @return \wwaz\Colormodel\Model\Color
+     * @param string $type – ex. 'rgb'
+     * @return wwaz\Colormodel\Model\Color
      */
     public function toType($type)
     {
@@ -43,7 +38,7 @@ abstract class Color
 
     /**
      * Returns color model type.
-     * e.g. color\Model\RGBA -> rgba.
+     * ex. color\Model\RGBA -> rgba.
      *
      * @return string
      */
@@ -59,7 +54,7 @@ abstract class Color
      *
      * @param string $type
      * @param mixed $value
-     * @return \wwaz\Colormodel\Model\Color
+     * @return wwaz\Colormodel\Model\Color
      */
     public function createColor($type, $value)
     {
@@ -67,122 +62,133 @@ abstract class Color
         return new $classname($value);
     }
 
-    // public function complement()
-    // {
-    //     $orgType = $this->type();
-    //     $rgb = $this->toRgb();
-
-    //     $r = 255 - $rgb->getRed();
-    //     $g = 255 - $rgb->getGreen();
-    //     $b = 255 - $rgb->getBlue();
-
-    //     $toOrg = 'to' . $orgType;
-    //     return (new RGB([$r, $g, $b]))->$toOrg();
-    // }
-
+    /**
+     * Returns complement color.
+     * 
+     * @return wwaz\Colormodel\Model\Color
+     */
     public function complement()
     {
-        $orgType = $this->type();
-        $hsb = $this->toHsb();
-        $hsb->hue(180);
-        $toOrg = 'to' . $orgType;
-        return $hsb->$toOrg();
+        return $this->toHsb()
+            ->hue(180)
+            ->toType($this->type());
+    }
+
+    /**
+     * Mixes a new color into this model using the given weight.
+     * 
+     * @param wwaz\Colormodel\Model\Color $color
+     * @param float $weight
+     * @return wwaz\Colormodel\Model\Color
+     */
+    public function mix(\wwaz\Colormodel\Model\Color $color, $weight = .5)
+    {
+        $c1 = $this->toRGB();
+        $c2 = $color->toRGB();
+
+        $mixed = new RGB(
+            round($c1->getRed() * (1 - $weight) + $c2->getRed() * $weight),
+            round($c1->getGreen() * (1 - $weight) + $c2->getGreen() * $weight),
+            round($c1->getBlue() * (1 - $weight) + $c2->getBlue() * $weight)
+        );
+
+        return $mixed->toType($this->type());
     }
 
     /**
      * Convert the color to Hex format.
      *
-     * @return \wwaz\Colormodel\Model\Hex the color in Hex format
+     * @return wwaz\Colormodel\Model\Hex the color in Hex format
      */
     abstract public function toHex();
 
     /**
      * Convert the color to RGB format.
      *
-     * @return \wwaz\Colormodel\Model\RGB the color in RGB format
+     * @return wwaz\Colormodel\Model\RGB the color in RGB format
      */
     abstract public function toRGB();
 
     /**
      * Convert the color to RGBA format.
      *
-     * @return \wwaz\Colormodel\Model\RGBA the color in RGBA format
+     * @return wwaz\Colormodel\Model\RGBA the color in RGBA format
      */
     abstract public function toRGBA();
 
     /**
      * Convert the color to XYZ format.
      *
-     * @return \wwaz\Colormodel\Model\XYZ the color in XYZ format
+     * @return wwaz\Colormodel\Model\XYZ the color in XYZ format
      */
     abstract public function toXYZ();
 
     /**
      * Convert the color to Yxy format.
      *
-     * @return \wwaz\Colormodel\Model\Yxy the color in Yxy format
+     * @return wwaz\Colormodel\Model\Yxy the color in Yxy format
      */
     abstract public function toYxy();
 
     /**
      * Convert the color to CIELab format.
      *
-     * @return \wwaz\Colormodel\Model\CIELab the color in CIELab format
+     * @return wwaz\Colormodel\Model\CIELab the color in CIELab format
      */
     abstract public function toCIELab();
 
     /**
      * Convert the color to CIELCh format
      *
-     * @return \wwaz\Colormodel\Model\CIELCh the color in CIELCh format
+     * @return wwaz\Colormodel\Model\CIELCh the color in CIELCh format
      */
     abstract public function toCIELCh();
 
     /**
      * Convert the color to CMY format.
      *
-     * @return \wwaz\Colormodel\Model\CMY the color in CMY format
+     * @return wwaz\Colormodel\Model\CMY the color in CMY format
      */
     abstract public function toCMY();
 
     /**
      * Convert the color to CMYK format.
      *
-     * @return \wwaz\Colormodel\Model\CMYK the color in CMYK format
+     * @return wwaz\Colormodel\Model\CMYK the color in CMYK format
      */
     abstract public function toCMYK();
 
     /**
      * Convert the color to toCMYKInt format.
      *
-     * @return \wwaz\Colormodel\Model\toCMYKInt the color in toCMYKInt format
+     * @return wwaz\Colormodel\Model\toCMYKInt the color in toCMYKInt format
      */
     abstract public function toCMYKInt();
 
     /**
      * Convert the color to HSV format.
      *
-     * @return \wwaz\Colormodel\Model\HSV the color in HSV format
+     * @return wwaz\Colormodel\Model\HSV the color in HSV format
      */
     abstract public function toHSV();
 
     /**
      * Convert the color to HSB format (same as HSV).
      *
-     * @return \wwaz\Colormodel\Model\HSB the color in HSB format
+     * @return wwaz\Colormodel\Model\HSB the color in HSB format
      */
     abstract public function toHSB();
 
     /**
      * Convert the color to HSL format.
      *
-     * @return \wwaz\Colormodel\Model\HSL the color in HSL format
+     * @return wwaz\Colormodel\Model\HSL the color in HSL format
      */
     abstract public function toHSL();
 
     /**
      * Returns html rgb value representation.
-     * e.g. rgb(255,0,0)
+     * ex. rgb(255,0,0)
      *
      * @return string
      */
@@ -193,7 +199,7 @@ abstract class Color
 
     /**
      * Returns html rgb value representation.
-     * e.g. rgb(255,0,0,0.5)
+     * ex. rgb(255,0,0,0.5)
      *
      * @return string
      */
@@ -208,7 +214,7 @@ abstract class Color
 
     /**
      * Returns string.
-     * e.g. '255,255,255'
+     * ex. '255,255,255'
      *
      * @return string
      */
@@ -244,7 +250,7 @@ abstract class Color
 
     /**
      * Returns array.
-     * e.g. [255, 0, 0]
+     * ex. [255, 0, 0]
      *
      * @return array
      */
@@ -254,8 +260,17 @@ abstract class Color
     }
 
     /**
+     * Alias.
+     * @see toAssociativeArray()
+     */
+    public function toAssoc()
+    {
+        return $this->toAssociativeArray();
+    }
+
+    /**
      * Returns asscociative array.
-     * e.g. ['r' => 255, 'g' => 0, 'b' => 0]
+     * ex. ['r' => 255, 'g' => 0, 'b' => 0]
      *
      * @return array
      */
@@ -267,7 +282,7 @@ abstract class Color
     /**
      * Find the closest websafe color.
      *
-     * @return \wwaz\Colormodel\Model\Color The closest color
+     * @return wwaz\Colormodel\Model\Color The closest color
      */
     public function websafe()
     {

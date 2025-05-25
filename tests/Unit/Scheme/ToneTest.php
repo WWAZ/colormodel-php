@@ -13,9 +13,9 @@ final class ToneTest extends TestCase
     {
         $colors = (new Tone(new RGB(255, 0, 0), 5))->get();
         $this->assertSame($colors[0]->toRgb()->toString(), '255,0,0');
-        $this->assertSame($colors[1]->toRgb()->toString(), '255,51,51');
-        $this->assertSame($colors[2]->toRgb()->toString(), '255,102,102');
-        $this->assertSame($colors[3]->toRgb()->toString(), '255,153,153');
-        $this->assertSame($colors[4]->toRgb()->toString(), '255,204,204');
+        $this->assertSame($colors[1]->toRgb()->toString(), '204,41,41');
+        $this->assertSame($colors[2]->toRgb()->toString(), '153,61,61');
+        $this->assertSame($colors[3]->toRgb()->toString(), '102,61,61');
+        $this->assertSame($colors[4]->toRgb()->toString(), '51,41,41');
     }
 }

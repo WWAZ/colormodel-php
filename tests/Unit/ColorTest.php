@@ -4,10 +4,10 @@ declare (strict_types = 1);
 
 use PHPUnit\Framework\TestCase;
 use wwaz\Colormodel\Model\RGB;
+use wwaz\Colormodel\Model\HEX;
 
 final class ColorTest extends TestCase
 {
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -29,15 +29,9 @@ final class ColorTest extends TestCase
         $this->assertSame($Color->websafe()->toString(), '0,153,255');
     }
 
-    // public function testDesaturate(): void
-    // {
-    //     $Color = new RGB(255, 0, 0);
-    //     $this->assertSame($Color->saturation(0, true)->toString(), '255,255,255');
-    // }
-
-    // public function testSaturation(): void
-    // {
-    //     $Color = new RGB(255, 0, 0);
-    //     $this->assertSame($Color->saturation(50, true)->toString(), '255,255,255');
-    // }
+    public function testMixColor(): void
+    {
+        $this->assertSame((new Hex('f00'))->mix(new Hex('00f'))->toString(), '800080');
+        $this->assertSame((new Hex('f00'))->mix(new Hex('00f'), .25)->toString(), 'BF0040');
+    }
 }

@@ -25,6 +25,9 @@ final class RGBATest extends TestCase
         $Color = new RGBA([255, 0, 0, 0]);
         $this->assertSame($Color->toString(), '255,0,0,0');
 
+        $Color = new RGBA('red');
+        $this->assertSame($Color->toString(), '255,0,0,1');
+
         $Color = new RGBA([
             'r' => 255,
             'g' => 0,
