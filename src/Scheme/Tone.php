@@ -12,6 +12,6 @@ class Tone extends ContinousScheme
 
     protected function generateStep($value)
     {
-        return $this->color->saturation($value, 1)->brightness($value, 1);
+        return $this->color->saturation($value)->brightness($value);
     }
 }

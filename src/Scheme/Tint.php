@@ -12,6 +12,6 @@ class Tint extends ContinousScheme
 
     protected function generateStep($value)
     {
-        return $this->color->saturation($value, true);
+        return $this->color->saturation($value);
     }
 }
